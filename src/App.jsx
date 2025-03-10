@@ -1,4 +1,5 @@
 import "./App.css";
+import AdsList from "./components/AdsList/AdsList";
 import CreateAd from "./components/CreateAd/CreateAd";
 import CreateUser from "./components/CreateUser/CreateUser";
 import Login from "./components/Login/Login";
@@ -12,6 +13,7 @@ function App() {
 			<CreateUser />
 			<UpdateUser />
 			<CreateAd />
+			<AdsList />
 		</>
 	);
 }

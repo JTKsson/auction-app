@@ -4,6 +4,7 @@ export const getAllAds = async () => {
 	try {
 		const response = await axiosInstance.get("/Ads");
 
+		console.log(response.data);
 		return response.data;
 	} catch (error) {
 		throw error;
