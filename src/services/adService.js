@@ -4,7 +4,6 @@ export const getAllAds = async () => {
 	try {
 		const response = await axiosInstance.get("/Ads");
 
-		console.log(response.data);
 		return response.data;
 	} catch (error) {
 		throw error;
@@ -31,10 +30,8 @@ export const createAd = async (ad) => {
 			endTime: ad.endTime,
 			userId: ad.userId,
 		});
-		console.log("from service: ", response.data);
 		return response.data;
 	} catch (error) {
-		console.error(error);
 		throw error;
 	}
 };

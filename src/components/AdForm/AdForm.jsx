@@ -29,8 +29,6 @@ const AdForm = ({ adFunction }) => {
 			console.error(error);
 		}
 		console.log("formData: ", formData);
-
-		// console.log(userIdAuth);
 	};
 
 	return (
