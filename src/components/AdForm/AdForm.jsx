@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const AdForm = ({ adFunction }) => {
+const AdForm = ({ adFunction, data }) => {
 	const authData = JSON.parse(localStorage.getItem("authData"));
 	const userIdAuth = authData ? authData.userID : null;
 
@@ -12,6 +12,15 @@ const AdForm = ({ adFunction }) => {
 		endTime: "",
 		userId: userIdAuth,
 	});
+
+	useEffect(() => {
+		if (data) {
+			setFormData((prevData) => ({
+				...prevData,
+				...data,
+			}));
+		}
+	}, [data]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -36,35 +45,32 @@ const AdForm = ({ adFunction }) => {
 			<input
 				type='text'
 				name='title'
-				placeholder='Title'
 				value={formData.title}
 				onChange={handleChange}
+				placeholder='Title'
 			/>
-			<input
-				type='text'
+			<textarea
 				name='description'
-				placeholder='Description'
 				value={formData.description}
 				onChange={handleChange}
+				placeholder='Description'
 			/>
 			<input
 				type='number'
 				name='price'
-				placeholder='Price'
 				value={formData.price}
 				onChange={handleChange}
+				placeholder='Price'
 			/>
 			<input
 				type='datetime-local'
 				name='startTime'
-				placeholder='Start time'
 				value={formData.startTime}
 				onChange={handleChange}
 			/>
 			<input
 				type='datetime-local'
 				name='endTime'
-				placeholder='End Time'
 				value={formData.endTime}
 				onChange={handleChange}
 			/>

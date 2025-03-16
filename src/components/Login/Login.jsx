@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { login } from "../../services/userService";
+import CreateUser from "../CreateUser/CreateUser";
 import UserForm from "../UserForm/UserForm";
-import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-	const { updateUserData } = useContext(AuthContext);
+	const [showCreateUser, setShowCreateUser] = useState(false);
 
 	const handleLogin = async (username, password) => {
 		try {
@@ -14,7 +14,21 @@ const Login = () => {
 			console.error(error);
 		}
 	};
-	return <UserForm userFunction={handleLogin} title={"Login"} />;
+
+	const toggleForm = () => {
+		setShowCreateUser(!showCreateUser);
+	};
+
+	return (
+		<>
+			{showCreateUser ? (
+				<CreateUser />
+			) : (
+				<UserForm userFunction={handleLogin} title={"Login"} />
+			)}
+			<button onClick={toggleForm}>{showCreateUser ? "Login" : "Create account"}</button>
+		</>
+	);
 };
 
 export default Login;

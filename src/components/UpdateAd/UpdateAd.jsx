@@ -5,13 +5,14 @@ const UpdateAd = ({ data }) => {
 	const handleUpdate = async (data) => {
 		try {
 			await updateAd(data);
+			window.location.reload();
 		} catch (error) {
 			console.error(error);
 		}
 	};
 	return (
 		<>
-			<AdForm adFunction={handleUpdate} />
+			<AdForm adFunction={handleUpdate} data={data} />
 		</>
 	);
 };

@@ -1,15 +1,15 @@
 import "./App.css";
 import AdDetails from "./components/AdDetails/AdDetails";
 import Header from "./components/Header/Header";
-import AuthProvider from "./context/AuthProvider";
 import AdsPage from "./pages/AdsPage";
 import Home from "./pages/Home";
 import UserPage from "./pages/UserPage";
 import { Route, Routes } from "react-router-dom";
+import DataProvider from "./context/DataProvider";
 
 function App() {
 	return (
-		<AuthProvider>
+		<DataProvider>
 			<Header />
 			<Routes>
 				<Route exact path='/' element={<Home />} />
@@ -17,7 +17,7 @@ function App() {
 				<Route path='/ads/:id' element={<AdDetails />} />
 				<Route path='/user' element={<UserPage />} />
 			</Routes>
-		</AuthProvider>
+		</DataProvider>
 	);
 }
 
