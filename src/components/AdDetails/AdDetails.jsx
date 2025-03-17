@@ -4,7 +4,7 @@ import { getAdById } from "../../services/adService";
 import AdListItem from "../AdListItem/AdListItem";
 import DeleteAd from "../DeleteAd/DeleteAd";
 import UpdateAd from "../UpdateAd/UpdateAd";
-import { isUser } from "../../utils/isAuth";
+import { isLoggedIn, isUser } from "../../utils/isAuth";
 import CreateBid from "../CreateBid/CreateBid";
 
 const AdDetails = () => {
@@ -33,7 +33,9 @@ const AdDetails = () => {
 	return (
 		<>
 			<AdListItem data={ad} />
-			<CreateBid adID={ad.adID} bid={ad.bid} endDate={ad.endTime} />
+			{!isUser(ad.userId) && isLoggedIn() && (
+				<CreateBid adID={ad.adID} bid={ad.bid} endDate={ad.endTime} />
+			)}
 			{isUser(ad.userId) && (
 				<>
 					<UpdateAd data={ad} />

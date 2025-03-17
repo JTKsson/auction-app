@@ -37,7 +37,6 @@ const AdForm = ({ adFunction, data }) => {
 		} catch (error) {
 			console.error(error);
 		}
-		console.log("formData: ", formData);
 	};
 
 	return (
@@ -55,19 +54,24 @@ const AdForm = ({ adFunction, data }) => {
 				onChange={handleChange}
 				placeholder='Description'
 			/>
-			<input
-				type='number'
-				name='price'
-				value={formData.price}
-				onChange={handleChange}
-				placeholder='Price'
-			/>
-			<input
-				type='datetime-local'
-				name='startTime'
-				value={formData.startTime}
-				onChange={handleChange}
-			/>
+			{data && data.bid.length > 0 ? (
+				<input
+					type='number'
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='Price'
+					disabled
+				/>
+			) : (
+				<input
+					type='number'
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='Price'
+				/>
+			)}
 			<input
 				type='datetime-local'
 				name='endTime'
