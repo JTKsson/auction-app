@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react";
 import { DataContext } from "../context/DataProvider";
+import Styles from "./SearchAds.module.css";
 
 const SearchAds = () => {
 	const { searchAds } = useContext(DataContext);
@@ -10,10 +11,13 @@ const SearchAds = () => {
 	};
 
 	return (
-		<>
-			<input type='text' ref={inputTxt} />
-			<button onClick={handleClick}>Search</button>
-		</>
+		<div className={Styles.searchAds}>
+			<p>Search auctions</p>
+			<section>
+				<input type='text' ref={inputTxt} />
+				<button onClick={handleClick}>Search</button>
+			</section>
+		</div>
 	);
 };
 

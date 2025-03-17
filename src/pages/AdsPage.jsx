@@ -7,7 +7,6 @@ const AdsPage = () => {
 	const { data } = useContext(DataContext);
 	return (
 		<>
-			<h1>Ads Page</h1>
 			<SearchAds />
 			<AdsList data={data} />
 		</>

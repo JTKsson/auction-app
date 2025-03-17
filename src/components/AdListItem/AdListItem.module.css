@@ -1,0 +1,26 @@
+.AdListItem {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+
+	> h2 {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 500;
+		text-transform: capitalize;
+		border-bottom: 1px solid #092435;
+		margin: 0 0 18px 0;
+	}
+
+	> p {
+		display: flex;
+		flex-direction: column;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 1001;
+		margin: 0 0 8px 0;
+		font-size: 14px;
+
+		> span {
+			font-size: 12px;
+		}
+	}
+}

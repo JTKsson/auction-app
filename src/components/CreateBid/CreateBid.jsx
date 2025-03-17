@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { getUsedId } from "../../utils/isAuth";
 import { createBid } from "../../services/bidService";
 import { isActive } from "../../utils/isActive";
+import Styles from "./CreateBid.module.css";
 
 const CreateBid = ({ adID, bid, endDate }) => {
 	const textBid = useRef();
@@ -33,12 +34,12 @@ const CreateBid = ({ adID, bid, endDate }) => {
 	return (
 		<>
 			{isActive(endDate) ? (
-				<>
+				<div className={Styles.createBid}>
 					<input type='text' ref={textBid} />
 					<button onClick={handleClick}>Place bid</button>
-				</>
+				</div>
 			) : (
-				<p>Auction has ended</p>
+				<p className={Styles.auctionEnd}>Auction has ended</p>
 			)}
 		</>
 	);

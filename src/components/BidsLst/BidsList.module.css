@@ -1,0 +1,26 @@
+.historyList {
+	button {
+		background-color: #fff;
+		color: #092435;
+		border: 1px solid #092435;
+		border-radius: 4px;
+		width: fit-content;
+		margin-top: 8px;
+	}
+	> button:hover {
+		background-color: #092435;
+		color: #fff;
+	}
+	> span {
+		font-size: 12px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	> p {
+		display: flex;
+		flex-direction: column;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: 1001;
+		margin: 0 0 8px 0;
+		font-size: 14px;
+	}
+}

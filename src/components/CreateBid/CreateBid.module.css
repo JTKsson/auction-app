@@ -1,0 +1,22 @@
+.createBid {
+	padding: 12px;
+
+	> input {
+		border-radius: 4px;
+		border: 1px solid #092435;
+	}
+
+	> button {
+		background-color: #fff;
+		color: #092435;
+		border: 1px solid #092435;
+		border-radius: 4px;
+		margin-left: 8px;
+	}
+}
+
+.auctionEnd {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	padding: 12px;
+	margin: 0;
+}

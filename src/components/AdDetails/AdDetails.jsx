@@ -6,6 +6,7 @@ import DeleteAd from "../DeleteAd/DeleteAd";
 import UpdateAd from "../UpdateAd/UpdateAd";
 import { isLoggedIn, isUser } from "../../utils/isAuth";
 import CreateBid from "../CreateBid/CreateBid";
+import Styles from "./AdDetails.module.css";
 
 const AdDetails = () => {
 	const { id } = useParams();
@@ -28,7 +29,6 @@ const AdDetails = () => {
 	if (!ad) {
 		return <div>Loading...</div>;
 	}
-	console.log(ad);
 
 	return (
 		<>
@@ -42,7 +42,13 @@ const AdDetails = () => {
 					{ad.bid.length < 1 && <DeleteAd id={ad.adID} />}
 				</>
 			)}
-			<button onClick={() => navigate(-1)}>Back to list</button>
+			<button
+				className={Styles.backButton}
+				onClick={() => navigate(-1)}
+				style={{ marginLeft: "12px" }}
+			>
+				Back to list
+			</button>
 		</>
 	);
 };

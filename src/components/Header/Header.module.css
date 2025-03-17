@@ -1,0 +1,51 @@
+.navigation {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-bottom: 1px solid #aaa;
+	background-color: #092435;
+
+	> h1 {
+		text-align: center;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+		font-size: 32px;
+		margin: 8px;
+		color: #ffffff;
+	}
+
+	> ul {
+		width: 30%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		text-align: center;
+		list-style-type: none;
+		color: #ffffff;
+
+		> :hover {
+			color: #092435;
+			background-color: #ffffff;
+		}
+
+		> li {
+			border-radius: 8px 16px 8px 16px;
+			padding: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			> a {
+				text-decoration: none;
+				text-transform: uppercase;
+				color: inherit;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+				> :visited {
+					text-decoration: none;
+					color: inherit;
+				}
+			}
+		}
+	}
+}

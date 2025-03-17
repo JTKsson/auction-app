@@ -12,3 +12,12 @@ export const createBid = async (bid) => {
 		throw error;
 	}
 };
+
+export const removeBid = async (id) => {
+	try {
+		const response = await axiosInstance.delete(`/bid/${id}`);
+		return response.data;
+	} catch (error) {
+		throw error;
+	}
+};

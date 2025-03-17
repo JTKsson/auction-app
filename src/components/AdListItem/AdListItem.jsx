@@ -1,38 +1,38 @@
 import React, { useState } from "react";
+import Styles from "./AdListItem.module.css";
+import BidsList from "../BidsLst/BidsList";
 
 const AdListItem = ({ data }) => {
-	const [showAllBids, setShowAllBids] = useState(false);
-
-	const handleToggleBids = () => {
-		setShowAllBids(!showAllBids);
-	};
-
-	const ShowBids = () => {
-		if (Array.isArray(data.bid) && data.bid.length > 0) {
-			return (
-				<>
-					<p>{data.bid[0].price}</p>
-					{showAllBids &&
-						data.bid.slice(1).map((bid, index) => <p key={index + 1}>{bid.price}</p>)}
-					<button onClick={handleToggleBids}>
-						{showAllBids ? "Show less" : "Show history"}
-					</button>
-				</>
-			);
-		} else if (data.bid) {
-			return <p>{data.bid.price}</p>;
-		}
-		return null;
+	const formatEndTime = (endTime) => {
+		const date = new Date(endTime);
+		const options = { month: "short", day: "numeric" };
+		const formattedDate = date.toLocaleDateString(undefined, options);
+		const formattedTime = date.toLocaleTimeString(undefined, {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: false,
+		});
+		return `${formattedDate}, ${formattedTime}`;
 	};
 
 	return (
-		<>
+		<div className={Styles.AdListItem}>
 			<h2>{data.title}</h2>
-			<p>{data.description}</p>
-			<p>{data.price}</p>
-			<p>{data.endTime}</p>
-			<ShowBids />
-		</>
+
+			<p>
+				<span>Description: </span>
+				{data.description}
+			</p>
+			<p>
+				<span>Starting price: </span>
+				{data.price} sek
+			</p>
+			<p>
+				<span>Auction ends: </span>
+				{formatEndTime(data.endTime)}
+			</p>
+			<BidsList data={data} />
+		</div>
 	);
 };
 

@@ -1,0 +1,24 @@
+.AdsList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	grid-column-gap: 12px;
+	grid-row-gap: 12px;
+	padding: 12px;
+
+	> div {
+		border: 1px solid #092435;
+		padding-bottom: 12px;
+		> button {
+			background-color: #fff;
+			border: 1px solid #092435;
+			color: #092435;
+			border-radius: 4px;
+			margin-left: 12px;
+		}
+		> button:hover {
+			background-color: #092435;
+			color: #fff;
+		}
+	}
+}
