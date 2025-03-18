@@ -1,0 +1,8 @@
+.welcome {
+	padding: 12px;
+
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

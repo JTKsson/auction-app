@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Styles from "./AdForm.module.css";
 
 const AdForm = ({ adFunction, data }) => {
 	const authData = JSON.parse(localStorage.getItem("authData"));
@@ -40,7 +41,7 @@ const AdForm = ({ adFunction, data }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className={Styles.adForm} onSubmit={handleSubmit}>
 			<input
 				type='text'
 				name='title'
@@ -54,7 +55,7 @@ const AdForm = ({ adFunction, data }) => {
 				onChange={handleChange}
 				placeholder='Description'
 			/>
-			{data && data.bid.length > 0 ? (
+			{data && (data.bid == null || data.bid.length > 1) ? (
 				<input
 					type='number'
 					name='price'

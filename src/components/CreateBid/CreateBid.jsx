@@ -26,6 +26,7 @@ const CreateBid = ({ adID, bid, endDate }) => {
 
 		try {
 			createBid(bid);
+			window.location.reload();
 		} catch (error) {
 			console.error(error);
 		}

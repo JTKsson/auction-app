@@ -39,14 +39,10 @@ const AdDetails = () => {
 			{isUser(ad.userId) && (
 				<>
 					<UpdateAd data={ad} />
-					{ad.bid.length < 1 && <DeleteAd id={ad.adID} />}
+					{ad && (!ad.bid || ad.bid.length < 1) && <DeleteAd id={ad.adID} />}
 				</>
 			)}
-			<button
-				className={Styles.backButton}
-				onClick={() => navigate(-1)}
-				style={{ marginLeft: "12px" }}
-			>
+			<button className={Styles.backButton} onClick={() => navigate(-1)}>
 				Back to list
 			</button>
 		</>

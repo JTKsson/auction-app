@@ -1,7 +1,9 @@
+import WelcomeMessage from "../components/WelcomeMessage/WelcomeMessage";
+
 const Home = () => {
 	return (
 		<>
-			<h1>Home</h1>
+			<WelcomeMessage />
 		</>
 	);
 };

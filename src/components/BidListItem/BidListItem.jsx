@@ -7,6 +7,7 @@ const BidListItem = ({ price, id, date }) => {
 	const handleRemove = () => {
 		try {
 			removeBid(id);
+			window.location.reload();
 		} catch (error) {
 			console.error(error);
 		}

@@ -28,6 +28,10 @@ const AdListItem = ({ data }) => {
 				{data.price} sek
 			</p>
 			<p>
+				<span>Auction start: </span>
+				{formatEndTime(data.startTime)}
+			</p>
+			<p>
 				<span>Auction ends: </span>
 				{formatEndTime(data.endTime)}
 			</p>

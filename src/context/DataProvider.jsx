@@ -6,16 +6,16 @@ export const DataContext = createContext();
 const DataProvider = (props) => {
 	const [data, setData] = useState([]);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const Ads = await getAllAds();
-				setData(Ads);
-			} catch (error) {
-				console.log(error);
-			}
-		};
+	const fetchData = async () => {
+		try {
+			const Ads = await getAllAds();
+			setData(Ads);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
+	useEffect(() => {
 		fetchData();
 	}, []);
 
@@ -31,8 +31,14 @@ const DataProvider = (props) => {
 		}
 	};
 
+	const refreshData = () => {
+		fetchData();
+	};
+
 	return (
-		<DataContext.Provider value={{ data, searchAds }}>{props.children}</DataContext.Provider>
+		<DataContext.Provider value={{ data, searchAds, refreshData }}>
+			{props.children}
+		</DataContext.Provider>
 	);
 };
 

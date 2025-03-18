@@ -36,7 +36,7 @@ const BidsList = ({ data }) => {
 				</button>
 			</div>
 		);
-	} else if (data.bid) {
+	} else if (!Array.isArray(data.bid) && data.bid) {
 		return (
 			<p>
 				<span>Current highest bid: </span>

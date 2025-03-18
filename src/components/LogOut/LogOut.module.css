@@ -1,12 +1,12 @@
-.backButton {
+.logoutButton {
 	background-color: #fff;
-	color: #092435;
 	border: 1px solid #092435;
+	color: #092435;
 	border-radius: 4px;
 	margin-left: 12px;
 }
 
-.backButton:hover {
-	color: #fff;
+.logoutButton:hover {
 	background-color: #092435;
+	color: #fff;
 }

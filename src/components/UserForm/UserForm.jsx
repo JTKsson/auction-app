@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Styles from "./UserForm.module.css";
 
 const UserForm = ({ userFunction, title }) => {
 	const usernameInput = useRef();
@@ -16,7 +17,7 @@ const UserForm = ({ userFunction, title }) => {
 	};
 
 	return (
-		<div>
+		<div className={Styles.userForm}>
 			<h3>{title}</h3>
 			<label>Username</label>
 			<input type='text' ref={usernameInput} />
