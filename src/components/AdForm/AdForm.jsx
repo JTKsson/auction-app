@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Styles from "./AdForm.module.css";
+import { getUsedId } from "../../utils/isAuth";
 
 const AdForm = ({ adFunction, data }) => {
-	const authData = JSON.parse(localStorage.getItem("authData"));
-	const userIdAuth = authData ? authData.userID : null;
+	const userId = getUsedId();
 
 	const [formData, setFormData] = useState({
 		title: "",
@@ -11,7 +11,7 @@ const AdForm = ({ adFunction, data }) => {
 		price: 0,
 		startTime: "",
 		endTime: "",
-		userId: userIdAuth,
+		userId: userId,
 	});
 
 	useEffect(() => {
@@ -40,6 +40,41 @@ const AdForm = ({ adFunction, data }) => {
 		}
 	};
 
+	const PriceInput = () => {
+		if (data && (!data.bid || data.bid.length < 1)) {
+			return (
+				<input
+					type='number'
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='Price'
+				/>
+			);
+		} else if (data && (data.bid || data.bid.length > 1)) {
+			return (
+				<input
+					type='number'
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='Price'
+					disabled
+				/>
+			);
+		} else {
+			return (
+				<input
+					type='number'
+					name='price'
+					value={formData.price}
+					onChange={handleChange}
+					placeholder='Price'
+				/>
+			);
+		}
+	};
+
 	return (
 		<form className={Styles.adForm} onSubmit={handleSubmit}>
 			<input
@@ -55,24 +90,7 @@ const AdForm = ({ adFunction, data }) => {
 				onChange={handleChange}
 				placeholder='Description'
 			/>
-			{data && (data.bid == null || data.bid.length > 1) ? (
-				<input
-					type='number'
-					name='price'
-					value={formData.price}
-					onChange={handleChange}
-					placeholder='Price'
-					disabled
-				/>
-			) : (
-				<input
-					type='number'
-					name='price'
-					value={formData.price}
-					onChange={handleChange}
-					placeholder='Price'
-				/>
-			)}
+			<PriceInput />
 			<input
 				type='datetime-local'
 				name='endTime'

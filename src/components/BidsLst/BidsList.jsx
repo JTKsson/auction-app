@@ -17,6 +17,7 @@ const BidsList = ({ data }) => {
 					date={data.endTime}
 					id={data.bid[0].bidID}
 					price={data.bid[0].price}
+					bidUserId={data.bid[0].userID}
 					key={data.bid[0].bidID}
 				/>
 
@@ -28,6 +29,7 @@ const BidsList = ({ data }) => {
 								date={data.endTime}
 								id={bid.bidID}
 								price={bid.price}
+								bidUserId={data.bid.userID}
 								key={bid.bidID}
 							/>
 						))}

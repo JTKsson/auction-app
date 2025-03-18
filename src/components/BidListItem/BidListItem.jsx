@@ -3,7 +3,7 @@ import { isActive } from "../../utils/isActive";
 import { getUsedId, isUser } from "../../utils/isAuth";
 import Styles from "./BidListItem.module.css";
 
-const BidListItem = ({ price, id, date }) => {
+const BidListItem = ({ price, id, date, bidUserId }) => {
 	const handleRemove = () => {
 		try {
 			removeBid(id);
@@ -13,12 +13,10 @@ const BidListItem = ({ price, id, date }) => {
 		}
 	};
 
-	const userId = getUsedId();
-
 	return (
 		<div className={Styles.bidListItem}>
 			<p>{price} sek</p>
-			{isUser(userId) && isActive(date) && <span onClick={handleRemove}>Undo</span>}
+			{isUser(bidUserId) && isActive(date) && <span onClick={handleRemove}>Undo</span>}
 		</div>
 	);
 };
